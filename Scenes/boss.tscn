@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://d033u61jx7wq6"]
+
+[ext_resource type="Texture2D" uid="uid://bnbk6m6psu272" path="res://Assets/Heroine/Player.png" id="1_2i7ms"]
+[ext_resource type="Script" path="res://Scenes/boss.gd" id="1_grv0y"]
+[ext_resource type="PackedScene" uid="uid://u5cabw3f1fvy" path="res://Scenes/BossHealth.tscn" id="3_8nus0"]
+[ext_resource type="PackedScene" uid="uid://cfqxtwk5x2yhd" path="res://Scenes/Patterns/pattern_manager.tscn" id="4_ddywb"]
+[ext_resource type="PackedScene" uid="uid://5x3wbrf4v400" path="res://Scenes/Patterns/pattern_ring.tscn" id="5_s84la"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2fk6j"]
+
+[node name="Boss" type="CharacterBody2D"]
+script = ExtResource("1_grv0y")
+max_health = 300.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_2i7ms")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_2fk6j")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="BossHealth" parent="." instance=ExtResource("3_8nus0")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="PatternManager" parent="." instance=ExtResource("4_ddywb")]
+patterns = Array[PackedScene]([ExtResource("5_s84la"), ExtResource("5_s84la"), ExtResource("5_s84la")])

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://kslrs6ia17f1"]
+
+[ext_resource type="Script" path="res://Scenes/heroine.gd" id="1_hamva"]
+[ext_resource type="Texture2D" uid="uid://bnbk6m6psu272" path="res://Assets/Heroine/Player.png" id="1_mx6dr"]
+[ext_resource type="PackedScene" uid="uid://5qxjpqjgu0fb" path="res://Scenes/Bullet.tscn" id="2_b0q3l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jmd8e"]
+
+[node name="Heroine" type="CharacterBody2D"]
+script = ExtResource("1_hamva")
+bullet_scene = ExtResource("2_b0q3l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mx6dr")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jmd8e")
+debug_color = Color(0.654902, 0, 0.0705882, 1)
+
+[node name="BulletSpawn" type="Marker2D" parent="."]
+position = Vector2(2.08165e-12, -16)
