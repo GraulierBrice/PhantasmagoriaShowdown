@@ -3,14 +3,19 @@ extends Area2D
 
 class_name Bullet
 
-@export var speed: float = 600.0
-@export var damage: float = 1.0
+@export var stats: Resource
+var speed: float = 600.0
+var damage: float = 1.0
 var direction: Vector2 = Vector2.UP
 var timeout: float = 15.0
 
 
 var faction: Globals.EFaction
 
+func _ready():
+	if stats:
+		speed = stats.speed
+		damage = stats.damage
 
 func _process(delta):
 	if owner == get_tree().edited_scene_root:

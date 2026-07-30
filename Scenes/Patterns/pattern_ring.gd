@@ -8,7 +8,7 @@ extends Pattern
 		bullet_count = new_count
 		if Engine.is_editor_hint():
 			preview()
-@export var bullet_speed: float = 200.0
+@export var bullet_stats: Resource
 
 func execute(owner):
 	var center = owner.global_position
@@ -22,32 +22,32 @@ func execute(owner):
 		# Give velocity in direction
 		var dir = Vector2(cos(angle), sin(angle))
 		bullet.direction = dir
-		bullet.speed = bullet_speed
+		bullet.stats = bullet_stats
 		bullet.faction = Globals.EFaction.BOSS
 		
 		get_tree().current_scene.add_child(bullet)
 
 		
 func preview():
-	##Remove all chilren
-	
-	for b in get_children():
-		if b is Bullet:
-			remove_child(b)
-			b.queue_free()
-	
-	## Create bullets
-	for i in range(bullet_count):
-		var angle = (TAU / bullet_count) * i
+	if owner == get_tree().edited_scene_root:
+		##Remove all chilren
 		
-		var bullet = bullet_scene.instantiate()
-		var dir = Vector2(cos(angle), sin(angle))
-		bullet.direction = dir
-		bullet.speed = bullet_speed
-		bullet.faction = Globals.EFaction.BOSS
+		for b in get_children():
+			if b is Bullet:
+				remove_child(b)
+				b.queue_free()
 		
-		add_child(bullet)
-		bullet.owner =  get_tree().edited_scene_root
+		## Create bullets
+		for i in range(bullet_count):
+			var angle = (TAU / bullet_count) * i
+			
+			var bullet = bullet_scene.instantiate()
+			var dir = Vector2(cos(angle), sin(angle))
+			bullet.direction = dir
+			bullet.stats = bullet_stats
+			bullet.faction = Globals.EFaction.BOSS
+			add_child(bullet)
+			bullet.owner =  get_tree().edited_scene_root
 
-	timer.start()
+		timer.start()
 	pass

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BulletStats" load_steps=2 format=3 uid="uid://ducnr3i2wa2fa"]
+
+[sub_resource type="GDScript" id="GDScript_b78k3"]
+script/source = "class_name BulletStats
+extends Resource
+
+@export var speed: float = 300.0
+@export var damage: float = 1.0
+
+# Make sure that every parameter has a default value.
+# Otherwise, there will be problems with creating and editing
+# your resource via the inspector.
+func _init(p_speed = 1.0, p_damage = 1.0):
+	speed = p_speed
+	damage = p_damage
+"
+
+[resource]
+script = SubResource("GDScript_b78k3")
+speed = 300.0
+damage = 1.0

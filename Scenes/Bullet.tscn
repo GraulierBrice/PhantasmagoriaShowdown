@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://5qxjpqjgu0fb"]
+[gd_scene load_steps=5 format=3 uid="uid://5qxjpqjgu0fb"]
 
 [ext_resource type="Texture2D" uid="uid://dkv4ab6a7qw18" path="res://Assets/Danmaku/danmaku_01.png" id="1_hk8up"]
 [ext_resource type="Script" path="res://Scenes/Bullet.gd" id="1_xpnsn"]
+[ext_resource type="Resource" uid="uid://ducnr3i2wa2fa" path="res://Resources/bullet_stats.tres" id="2_7rkub"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_habcr"]
 radius = 1.0
@@ -9,6 +10,7 @@ height = 8.0
 
 [node name="Bullet" type="Area2D"]
 script = ExtResource("1_xpnsn")
+stats = ExtResource("2_7rkub")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -0.785398

@@ -17,8 +17,8 @@ var is_on_cooldown := false
 
 func _init():
 	timer.wait_time = cooldown
-	##if not Engine.is_editor_hint():
-		##add_child(timer)
+	if not Engine.is_editor_hint():
+		add_child(timer)
 
 func activate(owner):
 	if is_on_cooldown:
@@ -44,9 +44,11 @@ func preview():
 
 
 func _on_tree_entered():
-	if Engine.is_editor_hint():
-		add_child(timer)
-		timer.start()
-		timer.timeout.connect(preview)
-		preview()
+	if owner == get_tree().edited_scene_root:
+		print("preview")
+		if Engine.is_editor_hint():
+			add_child(timer)
+			timer.start()
+			timer.timeout.connect(preview)
+			preview()
 	pass # Replace with function body.
