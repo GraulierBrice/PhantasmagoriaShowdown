@@ -4,3 +4,5 @@
 
 [node name="Pattern" type="Node2D"]
 script = ExtResource("1_bo1xi")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

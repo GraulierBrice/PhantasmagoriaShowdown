@@ -3,6 +3,8 @@
 [ext_resource type="Script" path="res://Scenes/Patterns/pattern_ring.gd" id="1_2khla"]
 [ext_resource type="PackedScene" uid="uid://5qxjpqjgu0fb" path="res://Scenes/Bullet.tscn" id="2_huty1"]
 
-[node name="Pattern" type="Node2D"]
+[node name="PatternRing" type="Node2D"]
 script = ExtResource("1_2khla")
 bullet_scene = ExtResource("2_huty1")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

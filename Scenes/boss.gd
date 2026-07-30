@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name Boss
 
-@export var speed: float = 200.0
+@export var speed: float = 100.0
 @export var max_health: float = 100.0
 @onready var pattern_manager = $PatternManager
 

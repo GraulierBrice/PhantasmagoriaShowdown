@@ -48,6 +48,7 @@ func fire():
 	var spawn_point = $BulletSpawn.global_position
 	bullet.global_position = spawn_point
 	bullet.faction = Globals.EFaction.HEROINE
+	bullet.direction = Vector2.DOWN
 	
 	get_tree().current_scene.add_child(bullet)
 	
