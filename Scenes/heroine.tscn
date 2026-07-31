@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/heroine.gd" id="1_hamva"]
 [ext_resource type="Texture2D" uid="uid://bnbk6m6psu272" path="res://Assets/Heroine/Player.png" id="1_mx6dr"]
-[ext_resource type="PackedScene" uid="uid://5qxjpqjgu0fb" path="res://Scenes/Bullet.tscn" id="2_b0q3l"]
+[ext_resource type="PackedScene" uid="uid://5qxjpqjgu0fb" path="res://Scenes/Bullets/Bullet.tscn" id="2_b0q3l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jmd8e"]
 
