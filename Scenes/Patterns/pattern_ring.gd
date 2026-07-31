@@ -8,7 +8,16 @@ extends Pattern
 		bullet_count = new_count
 		if Engine.is_editor_hint():
 			preview()
-@export var bullet_stats: Resource
+			
+@export var bullet_stats: Resource:
+	set(new_stats):
+		bullet_stats = new_stats
+		if Engine.is_editor_hint():
+			preview()
+
+func _ready():
+	if not Engine.is_editor_hint():
+		execute(self)
 
 func execute(owner):
 	var center = owner.global_position

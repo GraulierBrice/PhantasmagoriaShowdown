@@ -15,10 +15,11 @@ var faction: Globals.EFaction
 func _ready():
 	if stats:
 		speed = stats.speed
+		print(speed)
 		damage = stats.damage
 
 func _process(delta):
-	if owner == get_tree().edited_scene_root:
+	if not Engine.is_editor_hint() or owner == get_tree().edited_scene_root:
 		position -= speed * delta * direction
 		
 	# Delete if off-screen

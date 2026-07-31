@@ -6,6 +6,7 @@ extends Resource
 
 @export var speed: float = 300.0
 @export var damage: float = 1.0
+@export var turn_angle: float = 1.0
 
 # Make sure that every parameter has a default value.
 # Otherwise, there will be problems with creating and editing
@@ -17,5 +18,5 @@ func _init(p_speed = 1.0, p_damage = 1.0):
 
 [resource]
 script = SubResource("GDScript_b78k3")
-speed = 300.0
-damage = 1.0
+speed = 200.0
+turn_angle = 2.0
