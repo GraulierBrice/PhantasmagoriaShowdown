@@ -8,7 +8,7 @@ func _ready():
 	# Instantiate first 3 patterns
 	for i in range(min(3, patterns.size())):
 		var p = patterns[i].instantiate()
-		add_child(p)
+		owner.add_child.call_deferred(p)
 		equipped_patterns.append(p)
 
 func use_pattern(index: int, owner):

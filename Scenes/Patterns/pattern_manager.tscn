@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfqxtwk5x2yhd"]
-
-[ext_resource type="Script" path="res://Scenes/Patterns/pattern_manager.gd" id="1_qus2f"]
-
-[node name="PatternManager" type="Node"]
-script = ExtResource("1_qus2f")

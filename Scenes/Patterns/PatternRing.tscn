@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dy537eafk007a"]
 
 [ext_resource type="Script" uid="uid://cgpifw3llpn2v" path="res://Scenes/Patterns/pattern_ring.gd" id="1_2khla"]
-[ext_resource type="PackedScene" uid="uid://cv7gqmok8a7ju" path="res://Scenes/Patterns/pattern_bullet.tscn" id="1_m81la"]
+[ext_resource type="PackedScene" uid="uid://cv7gqmok8a7ju" path="res://Scenes/Patterns/PatternBullet.tscn" id="1_m81la"]
 
 [node name="PatternRing" instance=ExtResource("1_m81la")]
 script = ExtResource("1_2khla")

@@ -23,8 +23,9 @@ func _init():
 		add_child(timer)
 		
 func _ready():
-	if not Engine.is_editor_hint():
-		execute(self)
+	##if not Engine.is_editor_hint():
+	##	execute(self)
+	pass
 
 func activate(pattern_owner):
 	if is_on_cooldown:

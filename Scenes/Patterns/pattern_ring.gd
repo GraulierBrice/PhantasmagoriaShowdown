@@ -15,16 +15,10 @@ func execute(pattern_owner):
 	for i in range(bullet_count):
 		var angle = (TAU / bullet_count) * i
 		
-		var bullet = bullet_scene.instantiate()
-		bullet.global_position = center
-		
 		# Give velocity in direction
 		var dir = Vector2(cos(angle), sin(angle))
-		bullet.direction = dir
-		bullet.stats = bullet_stats
-		bullet.faction = Globals.EFaction.BOSS
-		
-		get_tree().current_scene.add_child(bullet)
+		var bullet = spawn_bullet(dir)		
+		add_child.call_deferred(bullet)
 
 		
 func preview():
@@ -39,12 +33,9 @@ func preview():
 		## Create bullets
 		for i in range(bullet_count):
 			var angle = (TAU / bullet_count) * i
-			
-			var bullet = bullet_scene.instantiate()
 			var dir = Vector2(cos(angle), sin(angle))
-			bullet.direction = dir
-			bullet.stats = bullet_stats
-			bullet.faction = Globals.EFaction.BOSS
+
+			var bullet = spawn_bullet(dir)
 			add_child(bullet)
 			bullet.owner =  get_tree().edited_scene_root
 

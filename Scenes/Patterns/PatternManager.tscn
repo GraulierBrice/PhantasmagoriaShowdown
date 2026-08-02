@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfqxtwk5x2yhd"]
+
+[ext_resource type="Script" uid="uid://b0l0y4r1uvr6j" path="res://Scenes/Patterns/pattern_manager.gd" id="1_qus2f"]
+[ext_resource type="PackedScene" uid="uid://dy537eafk007a" path="res://Scenes/Patterns/PatternRing.tscn" id="2_qyi5i"]
+[ext_resource type="PackedScene" uid="uid://cv7gqmok8a7ju" path="res://Scenes/Patterns/PatternBullet.tscn" id="3_2wlhf"]
+
+[node name="PatternManager" type="Node"]
+script = ExtResource("1_qus2f")
+patterns = Array[PackedScene]([ExtResource("2_qyi5i"), ExtResource("3_2wlhf")])

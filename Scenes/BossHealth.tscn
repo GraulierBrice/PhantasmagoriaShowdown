@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://u5cabw3f1fvy"]
 
-[ext_resource type="Script" path="res://Scenes/BossHealth.gd" id="1_55g2f"]
+[ext_resource type="Script" uid="uid://dx825t2e0fuhn" path="res://Scenes/boss_health.gd" id="1_55g2f"]
 [ext_resource type="Texture2D" uid="uid://dq8c54j0yt4vo" path="res://Assets/HealthRing.png" id="1_do0d1"]
 
 [node name="BossHealth" type="TextureProgressBar"]

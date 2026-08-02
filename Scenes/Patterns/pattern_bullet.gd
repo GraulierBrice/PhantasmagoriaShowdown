@@ -11,7 +11,7 @@ class_name PatternBullet
 			preview()
 
 func execute(pattern_owner):
-	get_tree().current_scene.add_child(spawn_bullet())
+	self.add_child(spawn_bullet())
 
 		
 func preview():
@@ -26,14 +26,14 @@ func preview():
 			
 			## Create bullet
 			var bullet = spawn_bullet()
-			add_child(bullet)
+			add_child.call_deferred(bullet)
 			bullet.owner = get_tree().edited_scene_root
 
 			if timer.is_inside_tree():
 				timer.start()
 
 ##Creates a bullet to spawn
-func spawn_bullet(dir: Vector2 = Vector2.UP, pos:Vector2=owner.global_position)->Bullet:
+func spawn_bullet(dir: Vector2 = Vector2.UP, pos:Vector2=global_position)->Bullet:
 	var bullet = bullet_scene.instantiate()
 	
 	bullet.direction = dir

@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d033u61jx7wq6"]
+[gd_scene load_steps=6 format=3 uid="uid://d033u61jx7wq6"]
 
 [ext_resource type="Texture2D" uid="uid://bnbk6m6psu272" path="res://Assets/Heroine/Player.png" id="1_2i7ms"]
-[ext_resource type="Script" path="res://Scenes/boss.gd" id="1_grv0y"]
+[ext_resource type="Script" uid="uid://dkhoexgkfag50" path="res://Scenes/boss.gd" id="1_grv0y"]
 [ext_resource type="PackedScene" uid="uid://u5cabw3f1fvy" path="res://Scenes/BossHealth.tscn" id="3_8nus0"]
-[ext_resource type="PackedScene" uid="uid://cfqxtwk5x2yhd" path="res://Scenes/Patterns/pattern_manager.tscn" id="4_ddywb"]
-[ext_resource type="PackedScene" uid="uid://5x3wbrf4v400" path="res://Scenes/Patterns/pattern_ring.tscn" id="5_s84la"]
+[ext_resource type="PackedScene" uid="uid://cfqxtwk5x2yhd" path="res://Scenes/Patterns/PatternManager.tscn" id="4_ddywb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2fk6j"]
 
@@ -40,4 +39,3 @@ size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="PatternManager" parent="." instance=ExtResource("4_ddywb")]
-patterns = Array[PackedScene]([ExtResource("5_s84la"), ExtResource("5_s84la"), ExtResource("5_s84la")])
