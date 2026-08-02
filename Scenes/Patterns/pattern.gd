@@ -3,13 +3,13 @@ extends Node2D
 
 class_name Pattern
 
+signal preview_done
+
 ## Exported Variables
 @export var cooldown: float = 1.0:
 	set(new_cooldown):
 		cooldown = new_cooldown
-		timer.wait_time = cooldown
-		if Engine.is_editor_hint() and can_preview:
-			preview()
+		timer.wait_time = max(cooldown,0.1)
 @export var mana_cost: int = 1
 
 ## Variables
@@ -47,6 +47,7 @@ func start_cooldown():
 
 ## Preview function to visualise the pattern when updating variables
 func preview():
+	preview_done.emit()
 	pass
 
 
@@ -55,7 +56,20 @@ func _on_tree_entered():
 	if Engine.is_editor_hint():
 		if not timer.get_parent():
 			add_child(timer)
-			timer.start()
-			timer.timeout.connect(preview)
-		preview()
+		if timer.get_parent() != self:
+			timer.reparent(self)
+		_on_preview_done()
+	pass # Replace with function body.
+
+
+func _on_preview_done():
+	print(timer.wait_time)
+	timer.stop()
+	if not timer.get_parent():
+		add_child(timer)
+	if timer.get_parent() != self:
+		timer.reparent(self)
+	timer.start()
+	await timer.timeout
+	preview()
 	pass # Replace with function body.

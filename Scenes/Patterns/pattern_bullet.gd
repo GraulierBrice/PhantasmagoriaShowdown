@@ -15,22 +15,20 @@ func execute(pattern_owner):
 
 		
 func preview():
-	if get_tree():
-		if owner == get_tree().edited_scene_root:
-			
-			##Remove all chilren
-			for b in get_children():
-				if b is Bullet:
-					remove_child(b)
-					b.queue_free()
-			
-			## Create bullet
-			var bullet = spawn_bullet()
-			add_child.call_deferred(bullet)
-			bullet.owner = get_tree().edited_scene_root
+	if owner == get_tree().edited_scene_root:
+		
+		##Remove all chilren
+		for b in get_children():
+			if b is Bullet:
+				remove_child(b)
+				b.queue_free()
+		## Create bullet
+		var bullet = spawn_bullet()
+		add_child(bullet)
+		bullet.owner = get_tree().edited_scene_root
+		preview_done.emit()
 
-			if timer.is_inside_tree():
-				timer.start()
+		
 
 ##Creates a bullet to spawn
 func spawn_bullet(dir: Vector2 = Vector2.UP, pos:Vector2=global_position)->Bullet:

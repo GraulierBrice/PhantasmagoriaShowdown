@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dy537eafk007a"]
+[gd_scene load_steps=3 format=3 uid="uid://wsqieuyoofux"]
 
 [ext_resource type="PackedScene" uid="uid://cv7gqmok8a7ju" path="res://Scenes/Patterns/PatternBullet.tscn" id="1_j1xqb"]
 [ext_resource type="Script" uid="uid://cgpifw3llpn2v" path="res://Scenes/Patterns/pattern_arc.gd" id="2_nw764"]
@@ -6,6 +6,7 @@
 [node name="PatternArc" instance=ExtResource("1_j1xqb")]
 script = ExtResource("2_nw764")
 bullet_count = 20
-angle_range = 180.0
+angle_range = 3.141592653589793
 delay = 0.0
 turn = 1
+angle_offset = -1.5707963267948966

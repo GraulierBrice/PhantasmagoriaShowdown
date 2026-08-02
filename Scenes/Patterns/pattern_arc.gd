@@ -12,8 +12,7 @@ class_name PatternArc
 @export_range(0, 360, 0.1, "radians_as_degrees") var angle_range: float = 180
 @export_range(0,5,0.01) var delay: float = 0.1
 @export var turn:Globals.ETurn = Globals.ETurn.CLOCKWISE
-@export_range(-180, 180, 0.1, "radians_as_degrees") var angle_offset: float = 0
-
+@export_range(-180, 180, 0.1, "radians_as_degrees") var angle_offset: float = -90
 
 
 func execute(pattern_owner):
@@ -39,9 +38,7 @@ func preview():
 			bullet.owner =  get_tree().edited_scene_root
 			if delay > 0:
 				await get_tree().create_timer(delay).timeout
-
-		timer.stop()
-		timer.start()
+		preview_done.emit()
 	pass
 
 func give_bullet_direction(slice: int) -> Vector2:
