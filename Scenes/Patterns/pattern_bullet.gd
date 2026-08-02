@@ -16,19 +16,20 @@ func execute(pattern_owner):
 		
 func preview():
 	if owner == get_tree().edited_scene_root:
-		
-		##Remove all chilren
-		for b in get_children():
-			if b is Bullet:
-				remove_child(b)
-				b.queue_free()
 		## Create bullet
 		var bullet = spawn_bullet()
 		add_child(bullet)
 		bullet.owner = get_tree().edited_scene_root
 		preview_done.emit()
 
-		
+func _on_preview_done():
+	timer.start()
+	await timer.timeout
+	clear_child_bullets()
+	preview()
+	pass 
+
+	
 
 ##Creates a bullet to spawn
 func spawn_bullet(dir: Vector2 = Vector2.UP, pos:Vector2=global_position)->Bullet:
@@ -39,3 +40,10 @@ func spawn_bullet(dir: Vector2 = Vector2.UP, pos:Vector2=global_position)->Bulle
 	#TODO: Check owner faction. Might use this system for players.
 	bullet.faction = Globals.EFaction.BOSS
 	return bullet
+
+func clear_child_bullets():
+	for b in get_children():
+		if b is Bullet:
+			remove_child(b)
+			b.queue_free()
+	

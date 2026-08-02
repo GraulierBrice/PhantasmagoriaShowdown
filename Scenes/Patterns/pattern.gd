@@ -63,12 +63,6 @@ func _on_tree_entered():
 
 
 func _on_preview_done():
-	print(timer.wait_time)
-	timer.stop()
-	if not timer.get_parent():
-		add_child(timer)
-	if timer.get_parent() != self:
-		timer.reparent(self)
 	timer.start()
 	await timer.timeout
 	preview()

@@ -24,13 +24,6 @@ func execute(pattern_owner):
 
 func preview():
 	if owner == get_tree().edited_scene_root:
-		##Remove all chilren
-		
-		for b in get_children():
-			if b is Bullet:
-				remove_child(b)
-				b.queue_free()
-		
 		## Create bullets
 		for i in range(bullet_count):
 			var bullet = spawn_bullet(give_bullet_direction(i))
