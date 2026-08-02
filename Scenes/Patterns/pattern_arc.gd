@@ -35,7 +35,7 @@ func preview():
 	pass
 
 func give_bullet_direction(slice: int) -> Vector2:
-	var angle = (angle_range / bullet_count) * slice * turn + angle_offset
+	var angle = (angle_range / (bullet_count-1)) * slice * turn + angle_offset
 	var dir = Vector2(sin(angle), -cos(angle))
 	return dir
 	

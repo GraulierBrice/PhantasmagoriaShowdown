@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcykbtedm8hgw"]
+
+[ext_resource type="PackedScene" uid="uid://5qxjpqjgu0fb" path="res://Scenes/Bullets/Bullet.tscn" id="1_tijm1"]
+[ext_resource type="Script" uid="uid://d0lo8lkg27jv8" path="res://Scenes/Bullets/laser.gd" id="2_a6fop"]
+
+[node name="Laser" instance=ExtResource("1_tijm1")]
+script = ExtResource("2_a6fop")
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+position = Vector2(0, 800)
+scale = Vector2(1, 200)
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
