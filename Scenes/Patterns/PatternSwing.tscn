@@ -1,8 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://ddtdpmkjl3mhh"]
 
-[ext_resource type="PackedScene" uid="uid://dy537eafk007a" path="res://Scenes/Patterns/PatternArc.tscn" id="1_pvpv2"]
+[ext_resource type="PackedScene" uid="uid://wsqieuyoofux" path="res://Scenes/Patterns/PatternArc.tscn" id="1_pvpv2"]
 [ext_resource type="Script" uid="uid://byjls7j10m4cn" path="res://Scenes/Patterns/pattern_swing.gd" id="2_i8p5s"]
 
 [node name="PatternSwing" instance=ExtResource("1_pvpv2")]
 script = ExtResource("2_i8p5s")
-angle_offset = 0.0
+swings = 6
+delay = 0.03
+cooldown = 0.0
