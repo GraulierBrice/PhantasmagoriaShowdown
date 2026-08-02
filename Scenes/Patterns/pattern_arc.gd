@@ -9,18 +9,16 @@ class_name PatternArc
 		if Engine.is_editor_hint() and can_preview:
 			preview()
 
-@export var angle_range: float = 180
-@export var delay: float = 0.1
+@export_range(0, 360, 0.1, "radians_as_degrees") var angle_range: float = 180
+@export_range(0,5,0.01) var delay: float = 0.1
 @export var turn:Globals.ETurn = Globals.ETurn.CLOCKWISE
+@export_range(-180, 180, 0.1, "radians_as_degrees") var angle_offset: float = 0
+
 
 
 func execute(pattern_owner):
 	for i in range(bullet_count):
-		var angle = (deg_to_rad(angle_range) / bullet_count) * i * turn
-		
-		# Give velocity in direction
-		var dir = Vector2(cos(angle), sin(angle))
-		var bullet = spawn_bullet(dir)
+		var bullet = spawn_bullet(give_bullet_direction(i))
 		if delay > 0:
 			await get_tree().create_timer(delay).timeout
 		add_child.call_deferred(bullet)
@@ -36,15 +34,18 @@ func preview():
 		
 		## Create bullets
 		for i in range(bullet_count):
-			var angle = (deg_to_rad(angle_range) / bullet_count) * i * turn
-			var dir = Vector2(cos(angle), sin(angle))
-
-			var bullet = spawn_bullet(dir)
+			var bullet = spawn_bullet(give_bullet_direction(i))
 			add_child(bullet)
 			bullet.owner =  get_tree().edited_scene_root
 			if delay > 0:
 				await get_tree().create_timer(delay).timeout
 
-
+		timer.stop()
 		timer.start()
 	pass
+
+func give_bullet_direction(slice: int) -> Vector2:
+	var angle = (angle_range / bullet_count) * slice * turn + angle_offset
+	var dir = Vector2(sin(angle), -cos(angle))
+	return dir
+	
