@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv7gqmok8a7ju"]
+
+[ext_resource type="PackedScene" uid="uid://blm8uv7n8lhlt" path="res://Scenes/Patterns/pattern.tscn" id="1_yavly"]
+[ext_resource type="Script" uid="uid://dsmseh6lapkhh" path="res://Scenes/Patterns/pattern_bullet.gd" id="2_2gkk1"]
+[ext_resource type="PackedScene" uid="uid://5qxjpqjgu0fb" path="res://Scenes/Bullets/Bullet.tscn" id="3_4bwed"]
+[ext_resource type="Resource" uid="uid://ducnr3i2wa2fa" path="res://Resources/bullet_stats.tres" id="4_fg0pl"]
+
+[node name="PatternBullet" instance=ExtResource("1_yavly")]
+script = ExtResource("2_2gkk1")
+bullet_scene = ExtResource("3_4bwed")
+bullet_stats = ExtResource("4_fg0pl")

@@ -3,31 +3,37 @@ extends Node2D
 
 class_name Pattern
 
+## Exported Variables
 @export var cooldown: float = 1.0:
 	set(new_cooldown):
 		cooldown = new_cooldown
 		timer.wait_time = cooldown
-		if Engine.is_editor_hint() and is_processing():
+		if Engine.is_editor_hint() and can_preview:
 			preview()
 @export var mana_cost: int = 1
+
+## Variables
 var timer: Timer = Timer.new()
-
-
 var is_on_cooldown := false
+var can_preview: bool = false
 
 func _init():
 	timer.wait_time = cooldown
 	if not Engine.is_editor_hint():
 		add_child(timer)
+		
+func _ready():
+	if not Engine.is_editor_hint():
+		execute(self)
 
-func activate(owner):
+func activate(pattern_owner):
 	if is_on_cooldown:
 		return
 	
-	execute(owner)
+	execute(pattern_owner)
 	start_cooldown()
 
-func execute(owner):
+func execute(pattern_owner):
 	# Override in child classes
 	pass
 
@@ -44,11 +50,11 @@ func preview():
 
 
 func _on_tree_entered():
-	if owner == get_tree().edited_scene_root:
-		print("preview")
-		if Engine.is_editor_hint():
+	can_preview = true
+	if Engine.is_editor_hint():
+		if not timer.get_parent():
 			add_child(timer)
 			timer.start()
 			timer.timeout.connect(preview)
-			preview()
+		preview()
 	pass # Replace with function body.

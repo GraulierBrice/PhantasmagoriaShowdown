@@ -15,7 +15,6 @@ var faction: Globals.EFaction
 func _ready():
 	if stats:
 		speed = stats.speed
-		print(speed)
 		damage = stats.damage
 
 func _process(delta):

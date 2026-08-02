@@ -1,26 +1,16 @@
 @tool
-extends Pattern
+extends PatternBullet
 
 
-@export var bullet_scene: PackedScene
 @export var bullet_count: int = 20:
 	set(new_count):
 		bullet_count = new_count
-		if Engine.is_editor_hint():
+		if Engine.is_editor_hint() and can_preview:
 			preview()
 			
-@export var bullet_stats: Resource:
-	set(new_stats):
-		bullet_stats = new_stats
-		if Engine.is_editor_hint():
-			preview()
 
-func _ready():
-	if not Engine.is_editor_hint():
-		execute(self)
-
-func execute(owner):
-	var center = owner.global_position
+func execute(pattern_owner):
+	var center = pattern_owner.global_position
 	
 	for i in range(bullet_count):
 		var angle = (TAU / bullet_count) * i
